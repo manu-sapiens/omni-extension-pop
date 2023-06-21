@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf8">
+  <title>Headline</title>
+  <meta name="description" content="A minimalistic RSS reader.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Favicon -->
+  <meta name="apple-mobile-web-app-title" content="Headline">
+  <meta name="application-name" content="Headline">
+  <meta name="theme-color" content="#ffffff">
+</head>
+
+<body>
+  <!-- Loading indicator -->
+  <div id="loading">
+    <div></div>
+  </div>
+
+  <!-- Menu bar -->
+  <nav>
+    <a id="menu" onclick="onMenuClicked()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="var(--color-text)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M-6,12 L0,6 L24,6 L12,18" />
+        <path d="M-6,12 L0,18 L24,18 L12,6" />
+        <path d="M3,12 L21,12" />
+      </svg>
+    </a>
+    <h3 id="title"></h3>
+  </nav>
+
+  <header id="settings">
+    <section>
+      <h3>Your plugins:</h3>
+      <ul id="plugins">
+        <template id="settings-plugin-item">
+          <li>
+            <span></span>
+            <span class="installed-status"></span>
+            <button class="install-button">Install</button>
+            <button class="update-button">Update</button>
+            <button class="delete-button">Delete</button>
+          </li>
+        </template>
+      </ul>
+    </section>
+  </header>
+
+  <script src="app.js"></script>
+</body>
+
+</html>

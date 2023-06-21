@@ -1,0 +1,7 @@
+title: Pile of Pythons Extension
+version: 0.0.1
+description: Manage and Run Pile of Pythons plugins
+author: manu-sapiens
+origin: https://github.com/manu-sapiens/omni-extension-pop.git
+client:
+  addToWorkbench: true
