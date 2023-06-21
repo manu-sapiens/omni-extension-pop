@@ -21,7 +21,7 @@ function save() {
 
 async function fetchPlugins() {
   try {
-    const res = await fetch(DEFAULT_CORS_PROXY(`${pluginsUrl}/plugins/available`));//fetch(DEFAULT_CORS_PROXY(`${pluginsUrl}/plugins/available`));
+    const res = await fetch(DEFAULT_CORS_PROXY(`${pluginsUrl}/plugins/list`));
     const json = await res.json();
     state.plugins = json;
     save();

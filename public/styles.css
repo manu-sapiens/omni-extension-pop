@@ -1,0 +1,254 @@
+/* Theme */
+:root {
+    --color-text: #212121;
+    --color-text-secondary: #bdbdbd;
+    --color-text-visited: #757575;
+    --color-accent: #FFFF00;
+    --color-background: #ffffff;
+    --line-height: 140%;
+    --font-family: 'PT Serif', Georgia, Cambria, 'Times New Roman', Times, serif;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-text: #fafafa;
+        --color-text-secondary: #bdbdbd;
+        --color-text-visited: #757575;
+        --color-background: #212121;
+        --color-accent: #880E4F;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: var(--font-family);
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6em;
+    background: var(--color-background);
+    color: var(--color-text);
+    line-height: var(--line-height);
+}
+
+ul,
+li {
+    list-style: none;
+    padding: 0;
+}
+
+a {
+    cursor: pointer;
+    color: var(--text-color);
+    font-style: italic;
+    text-decoration: underline;
+}
+
+button,
+textarea {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    outline: none;
+    border: 1px solid var(--color-text);
+    border-radius: 3px;
+    background: none;
+    padding: 0.5rem;
+}
+
+textarea {
+    max-width: 100%;
+}
+
+button {
+    font-weight: bold;
+    padding: 0.5rem 2rem;
+    background-color: var(--color-text);
+    color: var(--color-background);
+}
+
+section {
+    margin: 2rem;
+}
+
+/*
+   * Loading indicator
+   */
+#loading {
+    position: fixed;
+    width: 100%;
+}
+
+#loading.hidden {
+    display: none;
+}
+
+#loading div {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-text);
+}
+
+#loading div:before,
+#loading div:after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background-color: var(--color-background);
+    will-change: left, right;
+    animation: loading 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
+}
+
+#loading div:after {
+    animation: loading-short 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+    animation-delay: 1.15s;
+}
+
+@keyframes loading {
+    0% {
+        left: -35%;
+        right: 100%;
+    }
+
+    60% {
+        left: 100%;
+        right: -90%;
+    }
+
+    100% {
+        left: 100%;
+        right: -90%;
+    }
+}
+
+@keyframes loading-short {
+    0% {
+        left: -200%;
+        right: 100%;
+    }
+
+    60% {
+        left: 107%;
+        right: -8%;
+    }
+
+    100% {
+        left: 107%;
+        right: -8%;
+    }
+}
+
+/*
+   * Menu button
+   */
+nav,
+nav a {
+    display: flex;
+    align-items: center;
+    height: 6rem;
+    padding: 0 1rem;
+}
+
+#menu path {
+    transition: all 0.4s cubic-bezier(.645, .045, .355, 1);
+}
+
+#menu path:nth-child(1),
+#menu path:nth-child(2) {
+    stroke-dasharray: 18 43.45;
+    stroke-dashoffset: -11.4852;
+}
+
+#menu.close path:nth-child(1),
+#menu.close path:nth-child(2) {
+    stroke-dasharray: 16.970562 43.45;
+    stroke-dashoffset: -32.4852813;
+    transform: translateX(-5px);
+}
+
+#menu.back path:nth-child(1),
+#menu.back path:nth-child(2) {
+    stroke-dasharray: 8.4852 43.45;
+    stroke-dashoffset: 0;
+    transform: translateX(7px);
+}
+
+#menu path:nth-child(3) {
+    stroke-dasharray: 18;
+    stroke-dashoffset: 0;
+    opacity: 1;
+}
+
+#menu.close path:nth-child(3) {
+    stroke-dashoffset: -18;
+    opacity: 0;
+}
+
+/*
+   * Settings screen
+   */
+#settings h3 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+#settings {
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    transition: opacity 0.5s ease-out;
+}
+
+#settings.shown {
+    opacity: 1;
+    height: auto;
+    margin-bottom: 6rem;
+}
+
+/*
+   * News feed
+   */
+#news {
+    padding: 0 2rem 2rem 2rem;
+}
+
+#news a {
+    font-style: normal;
+    text-decoration: none;
+}
+
+#news h3:not(:empty) {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+#news li {
+    margin-bottom: 0.5rem;
+}
+
+#news em {
+    padding: 0 0.5rem;
+    color: var(--color-text-secondary);
+}
+
+#news a:visited,
+#news a:visited em {
+    color: var(--color-text-visited);
+}
+
+#news span.marked {
+    background-color: var(--color-accent);
+}
+
+#news a:visited span.marked {
+    background-color: var(--color-background);
+}
