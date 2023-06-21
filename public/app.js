@@ -23,7 +23,7 @@ async function fetchPlugins() {
   try {
     const res = await fetch(DEFAULT_CORS_PROXY(`${pluginsUrl}/plugins/available`));
     const json = await res.json();
-    state.plugins = json;
+    state.plugins = json.choices;
     save();
     renderSettings();
   } catch (e) {
